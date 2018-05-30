@@ -1,8 +1,12 @@
 'use strict'
+var io = require('socket.io-client')
 
-const socket = require('socket.io-client')
+var Channel = require('./channel')
 
-var Channel = require('./channel');
+var arrayWrap = require('./utils').arrayWrap
+
+
+module.exports = Client
 
 /**
  *
@@ -10,15 +14,48 @@ var Channel = require('./channel');
  * @param [opts]
  * @constructor
  */
-function Client (url, opts) {
-  this.io = socket(url, opts)
-  this.on = this.io.on;
+function Client(url, opts) {
+  this.socket = io(url, opts)
+  this.manager = new Channel.Manager([])
 }
 
-Client.prototype.subscribe = function (channels, then) {
+Client.prototype.subscribe = function (channels) {
+  var self = this
 
+  this.connected(function () {
+    self.emit('subscribe', {
+      channels
+    })
+  })
+  arrayWrap(channels).forEach(function (channel) {
+    self.manager.push(new Channel(channel, self))
+  })
+  return this.manager
 }
 
-Client.prototype.connected = function () {
-  
+Client.prototype.connected = function (cb) {
+  if (cb === undefined) {
+    return new Promise(resolve => {
+      this.on('connect', resolve)
+    })
+  }
+  this.on('connect', cb)
+}
+
+Client.prototype.select = function (channel, create) {
+  create = create || false
+
+  if (create && typeof channel === 'string' && !this.manager.has(channel)) {
+    return new Channel(channel, this)
+  }
+
+  return this.manager.select(channel)
+}
+
+Client.prototype.on = function (ev, cb) {
+  return this.socket.on(ev, cb)
+}
+
+Client.prototype.emit = function (ev, payload) {
+  return this.socket.emit(ev, payload)
 }
