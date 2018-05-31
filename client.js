@@ -27,6 +27,11 @@ Client.prototype.subscribe = function (channels) {
       channels
     })
   })
+  if (typeof channels === 'string') {
+    var chan = new Channel(channels, this)
+    this.manager.push(chan);
+    return chan;
+  }
   arrayWrap(channels).forEach(function (channel) {
     self.manager.push(new Channel(channel, self))
   })

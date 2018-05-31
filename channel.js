@@ -58,7 +58,8 @@ Manager.prototype.push = function (channel) {
 }
 
 Manager.prototype.select = function (channels) {
-  return new Manager(this.channels.filter(channel => arrayWrap(channels).indexOf(channel.name) > -1))
+  const chs = this.channels.filter(channel => arrayWrap(channels).indexOf(channel.name) > -1)
+  return new Manager(chs)
 }
 
 Manager.prototype.has = function (channel) {
