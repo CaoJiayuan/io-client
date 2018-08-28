@@ -28,3 +28,6 @@ declare interface Manager {
   select: (channel: string | string[]) => Manager,
   has: (channel: string ) => boolean,
 }
+
+
+export default Client
