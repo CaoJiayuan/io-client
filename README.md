@@ -1,5 +1,7 @@
 # Io-client
 
+![npm](https://img.shields.io/npm/v/nerio-uploader.svg)
+
 A websocket client base on [socket.io-client](https://github.com/socketio/socket.io-client), working with [io-server](https://github.com/CaoJiayuan/io-server)
 
 ## install
