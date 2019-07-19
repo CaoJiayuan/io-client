@@ -1,6 +1,6 @@
 {
   "name": "nerio-io-client",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "Web socket-io client",
   "main": "index.js",
   "scripts": {

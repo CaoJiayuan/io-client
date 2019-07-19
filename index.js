@@ -1,4 +1,4 @@
-var Client = require('./lib/client');
+import Client from './lib/client'
 
 
-module.exports = exports = Client;
+export default Client;
