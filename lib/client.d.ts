@@ -20,8 +20,8 @@ export interface ClientOptions {
   timestampParam ?: string,
   policyPort ?: number,
   requestTimeout ?: number,
-  protocols ?: Array,
-  transports ?: Array,
+  protocols ?: Array<String>,
+  transports ?: Array<String>,
   transportOptions ?: object
 }
 
@@ -35,7 +35,7 @@ export interface Client {
   broadcast: (channel: string | string[], ev : string | any, payload ?: any) => void,
   on: (ev: string, cb : Function) => void,
   emit: (ev: string,  payload : any) => void,
-  select: (channel: string | string[], create : boolean) => Channel | Manager,
+  select: (channel: string | string[], create ?: boolean) => Channel | Manager,
   main: () => Channel,
   open: () => Client,
   close: () => Client,
@@ -59,6 +59,7 @@ declare interface Manager {
   on: (ev: string, cb : Function) => Manager,
   push: (channel : Channel) => Manager,
   select: (channel: string | string[]) => Manager,
+  out: (channel: string | string[]) => Manager,
   has: (channel: string ) => boolean,
 }
 
