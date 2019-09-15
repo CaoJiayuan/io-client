@@ -50,13 +50,13 @@ declare interface Channel {
   name: string,
   client: Client,
   broadcast:  (ev : string | any, payload ?: any) => Channel,
-  on: (ev: string, cb : Function) => Channel,
+  on: (ev: string, cb : Function, once ?: boolean) => Channel,
 }
 
 declare interface Manager {
   channels: Channel[],
   broadcast:  (ev : string | any, payload ?: any) => Manager,
-  on: (ev: string, cb : Function) => Manager,
+  on: (ev: string, cb : Function, once ?: boolean) => Manager,
   push: (channel : Channel) => Manager,
   select: (channel: string | string[]) => Manager,
   out: (channel: string | string[]) => Manager,
