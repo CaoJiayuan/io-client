@@ -1,11 +1,14 @@
 # Io-client
 
-![npm](https://img.shields.io/npm/v/nerio-io-client.svg)
+![npm](https://img.shields.io/npm/v/nerio-io-client.svg) [![](https://data.jsdelivr.com/v1/package/npm/nerio-io-client/badge)](https://www.jsdelivr.com/package/npm/nerio-io-client)
 
 A websocket client base on [socket.io-client](https://github.com/socketio/socket.io-client), working with [io-server](https://github.com/CaoJiayuan/io-server)
 
 ## install
 ```npm i nerio-io-client -S```
+## CDN
+
+```<script src="https://cdn.jsdelivr.net/npm/nerio-io-client/dist/messenger.js"></script>```
 
 ## Usage
 
@@ -15,6 +18,7 @@ A websocket client base on [socket.io-client](https://github.com/socketio/socket
 import Client from 'nerio-io-client'
 
 const client = new Client(url, [socketIoOptions, autoCreate])
+// const client = new Messenger(url, [socketIoOptions, autoCreate]) // using cdn
 ```
 
 ### subscribe channel 
