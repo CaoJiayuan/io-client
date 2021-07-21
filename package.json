@@ -14,11 +14,11 @@
   "author": "CaoJiayuan",
   "license": "MIT",
   "dependencies": {
-    "socket.io-client": "^2.1.1"
+    "socket.io-client": "^2.4.0"
   },
   "types": "index.d.ts",
   "devDependencies": {
-    "webpack": "^4.44.1",
+    "webpack": "^5.45.1",
     "webpack-cli": "^3.3.12"
   }
 }
