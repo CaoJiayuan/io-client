@@ -14,7 +14,7 @@
   "author": "CaoJiayuan",
   "license": "MIT",
   "dependencies": {
-    "socket.io-client": "^2.4.0"
+    "socket.io-client": "1.4"
   },
   "types": "index.d.ts",
   "devDependencies": {
