@@ -19,6 +19,6 @@
   "types": "index.d.ts",
   "devDependencies": {
     "webpack": "^5.45.1",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^5.0.1"
   }
 }
